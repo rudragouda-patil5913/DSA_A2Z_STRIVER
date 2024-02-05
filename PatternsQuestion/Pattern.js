@@ -212,7 +212,6 @@ function pattern9(n) {
 //   return str;
 // }
 
-
 /* Pattern 11
 
 1
@@ -223,21 +222,20 @@ function pattern9(n) {
 
 */
 
-function pattern11(n){
+function pattern11(n) {
   let str = "";
-  for(let i=1;i<=n;i++){
-    for(let j=1;j<=i;j++){
-      if((i+j) % 2 == 0){
-          str += "1";
-      }else{
-          str += "0";
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= i; j++) {
+      if ((i + j) % 2 == 0) {
+        str += "1";
+      } else {
+        str += "0";
       }
     }
     str += "\n";
   }
   return str;
 }
-
 
 /* Pattern 12
 
@@ -250,16 +248,16 @@ function pattern11(n){
 
 */
 
-function pattern12(n){
-  let str ="";
-  for(let i=1;i<=n;i++){
-    for(let j=1;j<=i;j++){
+function pattern12(n) {
+  let str = "";
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= i; j++) {
       str += j;
     }
-    for(let j=1;j<=2 * (n-i);j++){
+    for (let j = 1; j <= 2 * (n - i); j++) {
       str += " ";
     }
-    for( let j=i;j>=1;j--){
+    for (let j = i; j >= 1; j--) {
       str += j;
     }
     str += "\n";
@@ -278,13 +276,13 @@ Result:
 16  17  18  19  20  21
 */
 
-function pattern13(n){
+function pattern13(n) {
   let str = "";
   let cnt = 0;
-  for(let i=1;i<=n;i++){
-    for(let j=1;j<=i;j++){
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= i; j++) {
       cnt += 1;
-      str += cnt + " "
+      str += cnt + " ";
     }
     str += "\n";
   }
@@ -302,19 +300,17 @@ A B C D E
 A B C D E F
 */
 
-function pattern14(n){
-  let str ="";
+function pattern14(n) {
+  let str = "";
   let N = 64;
-  for(let i=1;i<=n;i++){
-    for(let j=1;j<=i;j++){
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= i; j++) {
       str += String.fromCharCode(N + j) + " ";
     }
     str += "\n";
   }
   return str;
 }
-
-
 
 /*
 Input Format: N = 6
@@ -327,19 +323,17 @@ A B
 A
 */
 
-function pattern15(n){
-  let str ="";
-  let N =64;
-  for(let i=1;i<=n;i++){
-    for(let j=1;j<=(n-i+1);j++){
-        str += String.fromCharCode(N + j) + " ";
+function pattern15(n) {
+  let str = "";
+  let N = 64;
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= n - i + 1; j++) {
+      str += String.fromCharCode(N + j) + " ";
     }
-     str += "\n";
-
+    str += "\n";
   }
   return str;
 }
-
 
 /*
 Input Format: N = 6
@@ -352,5 +346,219 @@ E E E E E
 F F F F F F
 */
 
-const output = pattern16(6);
+function pattern16(n) {
+  let str = "";
+  let N = 64;
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= i; j++) {
+      str += String.fromCharCode(N + i) + " ";
+    }
+    str += "\n";
+  }
+  return str;
+}
+
+/*
+Input Format: N = 6
+Result:   
+     A     
+    ABA    
+   ABCBA   
+  ABCDCBA  
+ ABCDEDCBA 
+ABCDEFEDCBA
+*/
+
+function pattern17(n) {
+  let str = "";
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= n - i; j++) {
+      str += " ";
+    }
+    let N = 64;
+    for (let j = 1; j <= (2 * i )- 1; j++) {
+      if (j <= i) {
+        str += String.fromCharCode(++N);
+      } else {
+        str += String.fromCharCode(--N);
+      }
+    }
+    str += "\n";
+  }
+  return str;
+}
+
+
+
+/* Pattern 18
+
+F
+E F
+D E F
+C D E F
+B C D E F
+A B C D E F
+
+*/
+
+function pattern18(n){
+  let str = "";
+  for(let i=1;i<=n;i++){
+    let N = 64;
+    N = N + (n - i);
+    for(let j=1;j<=i;j++){
+      str += String.fromCharCode(N + j);
+    }
+    str += "\n";
+  }
+  return str;
+}
+
+/* Pattern 19
+
+
+************
+*****  *****
+****    ****
+***      ***
+**        **
+*          *
+*          *
+**        **
+***      ***
+****    ****
+*****  *****
+************
+
+*/
+
+function pattern19(n){
+  let str = "";
+  let N = 64;
+  for(let i=1;i<=n ; i++){
+    for(let j=1;j<=n-i+1;j++){
+      str += "*";
+    }
+    for(let j=1;j<=2*(i-1);j++){
+      str += " ";
+    }
+     for (let j = 1; j <= n - i + 1; j++) {
+       str += "*";
+     }
+     str +="\n";
+  }
+  for(let i=1;i<=n ;i++){
+    for(let j=1;j<=i;j++){
+      str += "*";
+    }
+    for(let j=1;j<= (2*n) -(i*2);j++){
+      str += " ";
+    }
+    for (let j = 1; j <= i; j++) {
+      str += "*";
+    }
+    str +="\n";
+  }
+  return str;
+}
+
+/* Patetrn 20
+
+*          *
+**        **
+***      ***
+****    ****
+*****  *****
+************
+*****  *****
+****    ****
+***      ***
+**        **
+*          *
+
+*/
+
+function pattern20(n){
+  let str = "";
+  for(let i=1;i<=n;i++){
+    for(let j=1;j<=i;j++){
+      str += "*";
+    }
+    for(let j=1; j<= (2*n) -(i*2); j++){
+      str += " ";
+    }
+    for (let j = 1; j <= i; j++) {
+      str += "*";
+    }
+    str += "\n";
+  }
+  for(let i=1;i<=n-1;i++){
+    for(let j=1;j<=n-i;j++){
+      str += "*";
+    }
+    for(let j=1;j<= 2*i;j++){
+      str += " ";
+    }
+    for(let j=1;j<=n-i;j++){
+      str += "*";    
+    }
+    str += "\n";
+  }
+  return str;
+}
+
+/* Pattern 21
+******
+*    *
+*    *
+*    *
+*    *
+******
+
+*/
+
+
+function fullStar(n){
+  let str = "";
+  for(let i=1;i<=n;i++){
+    str += "*";
+  }
+  return str;
+}
+
+function partialStar(n){
+  let str = "";
+   str += "*";
+   for(let i=1;i<=n-2;i++){
+    str += " ";
+   }
+   str += "*";
+   return str;
+}
+
+
+function pattern21(n){
+  let str= "";
+  str += fullStar(n);
+  str += "\n";
+  for(let i=1;i<=n-2;i++){
+    str += partialStar(n);
+    str += "\n";
+  }
+  str += fullStar(n);
+return str;
+}
+
+
+function pattern22(n){
+  let str = "";
+  for(let i=1;i<2*n;i++){
+    for(let j=1;j<2*n;j++){
+      str += Math.max(Math.abs(n-i)+1,Math.abs(n-j)+1);
+    }
+    str += "\n";
+  }
+  return str;
+}
+const output = pattern22(6);
 console.log(output);
