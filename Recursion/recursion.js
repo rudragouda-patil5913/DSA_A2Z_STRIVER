@@ -37,7 +37,7 @@ const sum = (n) => {
   return ans;
 };
 
-console.log(sum(5));
+// console.log(sum(5));
 
 /* Factorial of N numbers */
 
@@ -101,7 +101,27 @@ const palindrome = (str) =>{
   return false;
 }
 
-// console.log(palindrome("ABAC"));
+const pal = (str,p,q) =>{
+  if(p<q){
+    console.log(str[p],str[q]);
+    if(str[p] !== str[q]){
+      return false;
+    }else{
+      pal(str,p+1,q-1);
+    }
+  }
+  return true;
+
+}
+
+const palindrome2 = (str) =>{
+  let s = str.toString().split("");
+  console.log(s);
+  console.log(pal(s,0,s.length-1))
+}
+
+
+palindrome2("ABACABAz");
 
 
 /* fibonacci Problem */
@@ -114,7 +134,7 @@ const fib = (n) =>{
   }
 }
 
-let n = 5;
-for(let i=0;i<n;i++){
-  console.log(fib(i));
-}
+// let n = 5;
+// for(let i=0;i<n;i++){
+//   console.log(fib(i));
+// }
