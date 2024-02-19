@@ -32,12 +32,12 @@ Print 1 to N using Recursion
 /* 	Sum of first N numbers */
 let ans = null;
 const sum = (n) => {
-  if (n < 1) return 0;
+  if (n == 1) return 1;
   ans = n + sum(n - 1);
   return ans;
 };
 
-// console.log(sum(5));
+console.log(sum(5));
 
 /* Factorial of N numbers */
 
