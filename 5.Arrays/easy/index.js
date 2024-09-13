@@ -200,7 +200,7 @@ function appears(arr) {
 
 //Find largest sub-array
 
-const arr = [2,3,5,1,1,1,1,1,5,1,9];
+const arr = [2, 3, 5, 1, 1, 1, 1, 1, 5, 1, 9];
 
 // function subarray(arr,k) {
 //   let left = 0;
@@ -223,32 +223,25 @@ const arr = [2,3,5,1,1,1,1,1,5,1,9];
 //   return maxlen;
 // }
 
-function subarray(arr,k){
+function subarray(arr, k) {
   let maxclen = 0;
-  for(let i=0;i<arr.length;i++){
+  for (let i = 0; i < arr.length; i++) {
     sum = arr[i];
-    for(let j=i+1;j<arr.length;j++){
+    for (let j = i + 1; j < arr.length; j++) {
       sum += arr[j];
-    if(sum>k) break;
-    if(sum == k){
-       maxclen = Math.max(maxclen,j-i+1);
-    }
+      if (sum > k) break;
+      if (sum == k) {
+        maxclen = Math.max(maxclen, j - i + 1);
+      }
     }
   }
 
   return maxclen;
 }
 
-
-
-
 // console.log(subarray(arr,10))
 
-
 //
-
-
-
 
 function getLongestSubarray(a, k) {
   let n = a.length; // size of the array
@@ -273,25 +266,20 @@ function getLongestSubarray(a, k) {
       let len = i - preSumMap.get(rem);
       maxLen = Math.max(maxLen, len);
     }
-    console.log(preSumMap,"before");
+    console.log(preSumMap, "before");
     // finally, update the map checking the conditions
     if (!preSumMap.has(sum)) {
       preSumMap.set(sum, i);
       console.log(preSumMap, "after");
     }
   }
-  console.log(preSumMap)
+  console.log(preSumMap);
 
   return maxLen;
 }
 
 // let a = [-1, 1, 1];
-let a= [2,3,1,1,1,2,1,1,1,1,1]
-let k = 5;
+let a = [2, 0, 0, 3, 0];
+let k = 3;
 let len = getLongestSubarray(a, k);
 console.log("The length of the longest subarray is:", len);
-
-
-
-
-
