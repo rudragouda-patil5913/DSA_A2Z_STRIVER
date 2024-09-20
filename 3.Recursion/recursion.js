@@ -75,64 +75,59 @@ const revArr2 = (arr) => {
 };
 // console.log(revArr2([1, 2, 3, 4, 5]));
 
-
 //Recursive method
 
-function revArrayRecursion(arr,start,end){
-  if(start < end){
+function revArrayRecursion(arr, start, end) {
+  if (start < end) {
     let temp = arr[start];
     arr[start] = arr[end];
     arr[end] = temp;
-    console.log("hi")
-    revArrayRecursion(arr,start+1,end-1);
+    console.log("hi");
+    revArrayRecursion(arr, start + 1, end - 1);
   }
   return arr;
 }
-const array = [9,8,7,6,5];
+const array = [9, 8, 7, 6, 5];
 
 // console.log(revArrayRecursion(array,0,array.length-1));
 
-
 /* Palindrome */
 
-const palindrome = (str) =>{
-  const ans = str.split('').reverse().join('');
-  if(ans === str) return true;
+const palindrome = (str) => {
+  const ans = str.split("").reverse().join("");
+  if (ans === str) return true;
   return false;
-}
+};
 
-const pal = (str,p,q) =>{
-  if(p<q){
-    console.log(str[p],str[q]);
-    if(str[p] !== str[q]){
+const pal = (str, p, q) => {
+  if (p < q) {
+    console.log(str[p], str[q]);
+    if (str[p] !== str[q]) {
       return false;
-    }else{
-      pal(str,p+1,q-1);
+    } else {
+      pal(str, p + 1, q - 1);
     }
   }
   return true;
+};
 
-}
-
-const palindrome2 = (str) =>{
+const palindrome2 = (str) => {
   let s = str.toString().split("");
   console.log(s);
-  console.log(pal(s,0,s.length-1))
-}
-
+  console.log(pal(s, 0, s.length - 1));
+};
 
 palindrome2("ABACABAz");
 
-
 /* fibonacci Problem */
 
-const fib = (n) =>{
-  if(n<=1){
+const fib = (n) => {
+  if (n <= 1) {
     return n;
-  }else{
-    return fib(n-1)+fib(n-2);
+  } else {
+    return fib(n - 1) + fib(n - 2);
   }
-}
+};
 
 // let n = 5;
 // for(let i=0;i<n;i++){
