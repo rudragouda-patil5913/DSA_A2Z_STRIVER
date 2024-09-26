@@ -275,41 +275,37 @@ function arrange(nums) {
 
 // console.log(Leaders(arr));
 
-
 // Sub Array consecutives
 
 // const arr = [1,100,2,102,2,3,103,3,100,101,4]
 
-const subarrayConsecutive = (arr) =>{
+const subarrayConsecutive = (arr) => {
   let cnt = 0;
-  let x = null
+  let x = null;
   let st = new Set();
-  for(let i=0;i<arr.length;i++){
+  for (let i = 0; i < arr.length; i++) {
     st.add(arr[i]);
   }
-  for( let it of st){
-    if(!st.has(it-1)){
-        x = it + 1;
+  for (let it of st) {
+    if (!st.has(it - 1)) {
+      x = it + 1;
+      cnt = cnt + 1;
+      while (st.has(x)) {
+        x = x + 1;
         cnt = cnt + 1;
-        while(st.has(x)){
-          x = x + 1;
-          cnt = cnt + 1;
-        }
+      }
     }
     return cnt;
   }
-}
-
+};
 
 // console.log(subarrayConsecutive(arr));
 
-
-// Set Zero Matrix 
-
+// Set Zero Matrix
 
 // const matrix = [[0,1,1,0],[0,0,1,1],[1,0,1,0],[0,0,1,0]];
 
-const matrix = [[1,1,1,0],[1,0,1,1],[1,1,1,1],[1,1,1,1]];
+// const matrix = [[1,1,1,0],[1,0,1,1],[1,1,1,1],[1,1,1,1]];
 
 // const matrix = [
 //   [1, 1, 1],
@@ -317,13 +313,13 @@ const matrix = [[1,1,1,0],[1,0,1,1],[1,1,1,1],[1,1,1,1]];
 //   [1, 1, 1],
 // ];
 
-const setMatrix = (matrix) =>{
+const setMatrix = (matrix) => {
   let n = matrix.length;
   let m = matrix[0].length;
   let cnt0 = 1;
-  for(let i=0;i<n;i++){
-    for( let j=0;j<m;j++){
-      if(matrix[i][j] == 0){
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < m; j++) {
+      if (matrix[i][j] == 0) {
         matrix[i][0] = 0;
         if (j != 0) {
           matrix[0][j] = 0;
@@ -331,34 +327,58 @@ const setMatrix = (matrix) =>{
           cnt0 = 0;
         }
       }
-      
     }
   }
   // console.log(matrix);
 
-  for(let i=1;i<m;i++){
-    for(let j=1;j<m;j++){
-      if(matrix[i][j] !== 0){
-        if(matrix[i][0] == 0 || matrix[0][j] == 0){
+  for (let i = 1; i < m; i++) {
+    for (let j = 1; j < m; j++) {
+      if (matrix[i][j] !== 0) {
+        if (matrix[i][0] == 0 || matrix[0][j] == 0) {
           matrix[i][j] = 0;
         }
       }
     }
   }
 
-
-  if(matrix[0][0] == 0){
-    for(let j=0;j<m;j++){
-      matrix[0][j] = 0
+  if (matrix[0][0] == 0) {
+    for (let j = 0; j < m; j++) {
+      matrix[0][j] = 0;
     }
   }
-  if(cnt0 == 0){
-    for(let i=0;i<n;i++){
+  if (cnt0 == 0) {
+    for (let i = 0; i < n; i++) {
       matrix[i][0] = 0;
     }
   }
   return matrix;
-}
+};
 
+// console.log(setMatrix(matrix));
 
-console.log(setMatrix(matrix));
+const arr = [1, 2, 3, -1, -1, -1, 2];
+
+//Count Sub arrays of count K
+
+const countSubarry = (arr, k) => {
+  let count = 0;
+  let n = arr.length;
+  let sum = 0;
+  let mpp = new Map();
+  for (let i = 0; i < n; i++) {
+    sum += arr[i];
+    if (sum == k) {
+      count = count + 1;
+    }
+    let rem = sum - k;
+    if (mpp.has(rem)) {
+      count = count + 1;
+    }
+    if (!mpp.has(sum)) {
+      mpp.set(sum,i);
+    }
+  }
+  return count;
+};
+
+console.log(countSubarry(arr, 3));
