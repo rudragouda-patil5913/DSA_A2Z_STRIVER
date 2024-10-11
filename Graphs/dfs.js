@@ -21,6 +21,6 @@ function dfs(V, adj) {
 
 
 const V = 4;
-const adj = [[1], [0, 2, 4], [1, 3], [2, 4], [1, 3]];
-// const adj = [[], [ 2], [1, 3], [2]];
+// const adj = [[1], [0, 2, 4], [1, 3], [2, 4], [1, 3]];
+const adj = [[], [3], [1, 3], [2]];
 console.log(dfs(V, adj));
